@@ -44,3 +44,4 @@ func player():
 	pass
 
 func collect(item):
+	ivn.insert(item)
