@@ -1,14 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://caql6b1yupdg1"]
+[gd_scene load_steps=7 format=3 uid="uid://dcqn5nre0qpxd"]
 
-[ext_resource type="Script" uid="uid://bxp6rso1xqilx" path="res://apple_tree.gd" id="1_k6e6y"]
-[ext_resource type="Texture2D" uid="uid://liqg77igvvcw" path="res://art/survivalgame-appletree.png" id="2_idwsj"]
+[ext_resource type="Script" uid="uid://bxp6rso1xqilx" path="res://script/apple_tree.gd" id="1_hl03t"]
+[ext_resource type="Texture2D" uid="uid://liqg77igvvcw" path="res://art/survivalgame-appletree.png" id="2_jeeu4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b72hq"]
-atlas = ExtResource("2_idwsj")
+atlas = ExtResource("2_jeeu4")
 region = Rect2(40, 0, 40, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i82r7"]
-atlas = ExtResource("2_idwsj")
+atlas = ExtResource("2_jeeu4")
 region = Rect2(80, 0, 40, 40)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hvlb6"]
@@ -33,7 +33,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_x3w4c"]
 
 [node name="apple_tree" type="Node2D"]
-script = ExtResource("1_k6e6y")
+script = ExtResource("1_hl03t")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_hvlb6")

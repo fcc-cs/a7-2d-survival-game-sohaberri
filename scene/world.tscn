@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ca4qbuht3t1oo" path="res://art/survivalgame-terrian-cliffs.png" id="3_0tg4p"]
 [ext_resource type="Texture2D" uid="uid://dwia3xcteht04" path="res://art/survivalgame-trees.png" id="4_hcb8y"]
 [ext_resource type="Texture2D" uid="uid://cww3es3iue20u" path="res://art/survivalgame-terrian-water.png" id="5_y3jn2"]
-[ext_resource type="PackedScene" uid="uid://caql6b1yupdg1" path="res://apple_tree.tscn" id="6_0tg4p"]
+[ext_resource type="PackedScene" uid="uid://dcqn5nre0qpxd" path="res://scene/apple_tree.tscn" id="6_0tg4p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yur6x"]
 texture = ExtResource("2_emkrx")
