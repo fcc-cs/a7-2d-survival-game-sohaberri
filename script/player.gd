@@ -9,7 +9,11 @@ var bow_equiped = false
 var bow_cooldown = true
 var arrow =  preload("res://scene/arrow.tscn")
 
+var mouse_loc_from_player = null
+
 func _physics_process(delta):
+	mouse_loc_from_player = get_global_mouse_position() - self.position
+	print(mouse_loc_from_player)
 	var direction = Input.get_vector("left", "right", "up", "down")
 	
 	if direction.x == 0 and direction.y == 0:
@@ -42,27 +46,46 @@ func _physics_process(delta):
 	play_anim(direction)
 	
 func play_anim(dir):
-
-	if player_state == "idle":
-		$AnimatedSprite2D.play("idle")
-	if player_state == "walking":
-		if dir.y == -1:
-			$AnimatedSprite2D.play("n_walk")
-		if dir.x == 1:
-			$AnimatedSprite2D.play("e_walk")
-		if dir.y == 1:
-			$AnimatedSprite2D.play("s_walk")
-		if dir.x == -1:
-			$AnimatedSprite2D.play("w_walk")
-		if dir.x > 0.5 and dir.y < -0.5:
-			$AnimatedSprite2D.play("ne_walk")
-		if dir.x > 0.5 and dir.y > 0.5:
-			$AnimatedSprite2D.play("se_walk")
-		if dir.x < -0.5 and dir.y > 0.5:
-			$AnimatedSprite2D.play("sw_walk")
-		if dir.x < -0.5 and dir.y < -0.5:
-			$AnimatedSprite2D.play("nw_walk")
-
+	if !bow_equiped:
+		speed = 100
+		if player_state == "idle":
+			$AnimatedSprite2D.play("idle")
+		if player_state == "walking":
+			if dir.y == -1:
+				$AnimatedSprite2D.play("n_walk")
+			if dir.x == 1:
+				$AnimatedSprite2D.play("e_walk")
+			if dir.y == 1:
+				$AnimatedSprite2D.play("s_walk")
+			if dir.x == -1:
+				$AnimatedSprite2D.play("w_walk")
+			if dir.x > 0.5 and dir.y < -0.5:
+				$AnimatedSprite2D.play("ne_walk")
+			if dir.x > 0.5 and dir.y > 0.5:
+				$AnimatedSprite2D.play("se_walk")
+			if dir.x < -0.5 and dir.y > 0.5:
+				$AnimatedSprite2D.play("sw_walk")
+			if dir.x < -0.5 and dir.y < -0.5:
+				$AnimatedSprite2D.play("nw_walk")
+	if bow_equiped:
+		speed = 0
+		if mouse_loc_from_player.x >= -25 and mouse_loc_from_player.x <= 25 and mouse_loc_from_player.y < 0:
+			$AnimatedSprite2D.play("n_attack")
+		if mouse_loc_from_player.x >= -25 and mouse_loc_from_player.x <= 25 and mouse_loc_from_player.y > 0:
+			$AnimatedSprite2D.play("s_attack")
+		if mouse_loc_from_player.x >= 25 and mouse_loc_from_player.y >= -25 and mouse_loc_from_player.y <= 25:
+			$AnimatedSprite2D.play("e_attack")
+		if mouse_loc_from_player.x <= -25 and mouse_loc_from_player.y >= -25 and mouse_loc_from_player.y <= 25:
+			$AnimatedSprite2D.play("w_attack")
+		if mouse_loc_from_player.x > 25 and mouse_loc_from_player.y <= -25:
+			$AnimatedSprite2D.play("ne_attack")
+		if mouse_loc_from_player.x > 0.5 and mouse_loc_from_player.y >= 25:
+			$AnimatedSprite2D.play("se_attack")
+		if mouse_loc_from_player.x <= -0.5 and mouse_loc_from_player.y >= 25:
+			$AnimatedSprite2D.play("sw_attack")
+		if mouse_loc_from_player.x <= -25 and mouse_loc_from_player.y <= -25:
+			$AnimatedSprite2D.play("nw_attack")
+		
 func player():
 	pass
 
