@@ -290,3 +290,8 @@ position = Vector2(132, 88)
 [node name="player" parent="." instance=ExtResource("1_pjass")]
 position = Vector2(19, 16)
 ivn = ExtResource("2_hcb8y")
+
+[node name="collisions" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="collisions"]
+polygon = PackedVector2Array(-20, -681, -14, -166, -263, -168, -267, -408, -720, -405, -721, -237, -405, -235, -402, -73, -285, -73, -283, 152, -720, 154, -718, 256, -6, 252, -1, 437, 54, 437, 52, 250, 590, 252, 599, -683, 19, -677, 22, -780, 656, -749, 665, 531, -854, 525, -873, -765, 0, -714)
