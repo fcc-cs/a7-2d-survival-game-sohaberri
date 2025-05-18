@@ -33,3 +33,23 @@ func _on_detection_area_body_entered(body):
 func _on_detection_area_body_exited(body):
 	if body.has_method("player"):
 		player_in_area = false
+
+
+func _on_hitbox_area_entered(area: Area2D):
+	var damage
+	if area.has_method("arrow_deal_damage"):
+		damage = 50
+		take_damage(damage)
+		
+func take_damage(damage):
+	health = health - damage
+	if health <- 0 and !dead:
+		death()
+		
+func death():
+	dead = true
+	$AnimatedSprite2D.play("death")
+	await get_tree().create_timer(1).timeout
+	queue_free()
+	
+	
