@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://q0ab0qao6uqs"]
+
+[ext_resource type="Script" uid="uid://cfanqhgqvt4ra" path="res://script/arrow.gd" id="1_yspra"]
+[ext_resource type="Texture2D" uid="uid://bwbmy2cpj5ew6" path="res://art/stick-icon.png" id="2_phkht"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j6l6t"]
+size = Vector2(4.5, 19.5036)
+
+[node name="arrow" type="Area2D"]
+script = ExtResource("1_yspra")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.913321, 1.32102)
+texture = ExtResource("2_phkht")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+scale = Vector2(1, 0.915033)
+shape = SubResource("RectangleShape2D_j6l6t")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+scale = Vector2(0.1, 0.3)
+
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
