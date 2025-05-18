@@ -568,3 +568,7 @@ limit_right = 597
 limit_bottom = 437
 
 [node name="Ivn_UI" parent="." instance=ExtResource("3_fvtld")]
+offset_left = -40.0
+offset_top = -73.0
+offset_right = -40.0
+offset_bottom = -73.0
